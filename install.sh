@@ -178,7 +178,7 @@ done
 r8=0
 while [ ${r8} -eq 0 ]
 do
-	echo "Install texmake? (y/n)"
+	echo "Install texmaker? (y/n)"
 	read t8
 	if [ ${t8} = "y" ] 
 	then
