@@ -21,10 +21,15 @@ def plot3d(t=[],v=[],title=1,l = [0,162,0,162],x='x',y='y',z='z'):
 	ax.axis(l)
 	
 
-def read(s1 = 'L', i = 0, n = 8, d = 2, s2='NF', s3='txt'):
-	l1 = np.array([retxt(s2+'_'+s1+'_'+str(x+1)+s3, d)[i] for x in range(n)])
-	l2 = np.array([np.cumsum(l) for l in l1])
-	return [l1,l2]
+def read(s1 = 'L', i = 0, n = 8, d = 2, s2='NF', s3='.txt', k = 1, t = 1, fill = 0, fn = 4):
+	if (fill==0):
+		l1 = np.array([retxt(s2+'_'+s1+'_'+str(x+1)+s3, d, k, t)[i] for x in range(n)])
+	else:
+		s4 = str(i+1).zfill(fn)
+		l1 = np.array([retxt(s2+'_'+s1+'_'+str(x+1)+s3, d, k, t)[i] for x in range(n)])
+	#l2 = np.array([np.cumsum(l) for l in l1])
+	return l1
+
 
 def r(s=r'R_{V}'):
 	return r'$' + s + r'[\mathrm{Mpc}\cdot h^{-1}]$'
