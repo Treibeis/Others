@@ -100,8 +100,9 @@ do
 		sudo apt-get install python-scipy
 		sudo apt-get install python3-scipy
 		sudo apt-get install python-matplotlib
+		sudo apt-get install python3-matplotlib
 		sudo apt-get install python
-		r2=1
+		r4=1
 	elif [ ${t4} = "n" ]
 	then
 		r4=1
@@ -122,9 +123,10 @@ do
 		echo "Input your path:"
 		read p1
 		sudo touch /usr/local/lib/python2.7/dist-packages/"${np}.pth"
-		sudo echo -e "${p1}" > /usr/local/lib/python2.7/dist-packages/"${np}.pth"
+		sudo echo "${p1}" > /usr/local/lib/python2.7/dist-packages/"${np}.pth"
 		sudo touch /usr/local/lib/python3.5/dist-packages/"${np}.pth"
-		sudo echo -e "${p1}" > /usr/local/lib/python3.5/dist-packages/"${np}.pth"
+		sudo echo "${p1}" > /usr/local/lib/python3.5/dist-packages/"${np}.pth"
+		sudo echo "If this doesn't work, please add the .pth file manualy to /usr/local/lib/python*/dist-packages/, where * can be 2.7 or 3.5."
 		r5=1
 	elif [ ${t5} = "n" ]
 	then
@@ -193,7 +195,7 @@ do
 done
 
 echo "The theme:"
-echo "You may use Unity Tweak Tool to change themes."
+echo "You may use Unity Tweak Tool (available at Ubuntu Software) to change themes."
 
 r9=0
 while [ ${r9} -eq 0 ]
@@ -223,7 +225,7 @@ do
 	read t10
 	if [ ${t10} = "y" ] 
 	then
-		sudo apt-get-repository ppa: snwh/pulp
+		sudo add-apt-repository ppa:snwh/
 		sudo apt-get install paper-icon-theme
 		sudo apt-get install paper-gtk-theme
 		r10=1
@@ -236,6 +238,27 @@ do
 done
 
 echo "You may find more themes at http://www.ubuntuthemes.org"
+
+echo "Synchronization:"
+echo "You may need to turn off UTC to make Ubuntu synchronous with Windows."
+
+r11=0
+while [ ${r11} -eq 0 ]
+do
+	echo "Turn off UTC (y/n)?"
+	read t11
+	if [ ${t11} = "y" ]
+	then
+		sudo timedatectl set local-rtc 1
+		r11=1
+	elif [ ${t11} = "n" ]
+	then
+		r11=1
+	else
+		echo "Input should be y/n."
+	fi
+done
+
 echo "Some websites for learning linux:"
 echo "http://www.runoob.com/linux/linux-shell.html"
 echo "http://cn.linux.vbird.org/linux_basic/linux_basic.php"
