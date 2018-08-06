@@ -18,6 +18,8 @@ do
 	if [ ${t0} = "y" ] 
 	then
 		sudo apt-get update
+		sudo apt-get upgrade
+		sudo apt-get install git
 		r0=1
 	elif [ ${t0} = "n" ]
 	then
@@ -57,8 +59,8 @@ do
 	then
 		sudo apt-get install vim
 		sudo apt-get install fcitx
-		sudo apt-get install fctix-googlepinyin
-		sudo apt-get install ibus-sunpinyin
+		sudo apt-get install fcitx-googlepinyin
+		#sudo apt-get install ibus-sunpinyin
 		r2=1
 	elif [ ${t2} = "n" ]
 	then
@@ -95,13 +97,17 @@ do
 	read t4
 	if [ ${t4} = "y" ] 
 	then
+		sudo apt-get install python
+		sudo apt-get install python3
+		sudo apt-get install python-pip
+		sudo apt-get install python3-pip
 		sudo apt-get install python-numpy
 		sudo apt-get install python3-numpy
 		sudo apt-get install python-scipy
 		sudo apt-get install python3-scipy
 		sudo apt-get install python-matplotlib
 		sudo apt-get install python3-matplotlib
-		sudo apt-get install python
+		sudo apt-get install mercurial
 		r4=1
 	elif [ ${t4} = "n" ]
 	then
@@ -168,6 +174,7 @@ do
 	if [ ${t7} = "y" ] 
 	then
 		sudo apt-get install texlive-full
+		sudo apt-get install libjs-mathjax
 		r7=1
 	elif [ ${t7} = "n" ]
 	then
@@ -185,6 +192,7 @@ do
 	if [ ${t8} = "y" ] 
 	then
 		sudo apt-get install texmaker
+		sudo apt-get remove appmenu-qt5
 		r8=1
 	elif [ ${t8} = "n" ]
 	then
@@ -195,7 +203,25 @@ do
 done
 
 echo "The theme:"
-echo "You may use Unity Tweak Tool (available at Ubuntu Software) to change themes."
+#echo "You may use Unity Tweak Tool (available at Ubuntu Software) to change themes."
+
+r8_=0
+while [ ${r8_} -eq 0 ]
+do
+	echo "Install Gnome Tweak Tool? (y/n)"
+	read t8_
+	if [ ${t8_} = "y" ] 
+	then
+		sudo apt-get install notify-osd
+		sudo apt-get install gnome-tweak-tool
+		r8_=1
+	elif [ ${t8_} = "n" ]
+	then
+		r8_=1
+	else
+		echo "Input should be y/n."
+	fi
+done
 
 r9=0
 while [ ${r9} -eq 0 ]
@@ -225,7 +251,7 @@ do
 	read t10
 	if [ ${t10} = "y" ] 
 	then
-		sudo add-apt-repository ppa:snwh/
+		sudo add-apt-repository ppa:snwh/pulp
 		sudo apt-get install paper-icon-theme
 		sudo apt-get install paper-gtk-theme
 		r10=1
@@ -249,7 +275,7 @@ do
 	read t11
 	if [ ${t11} = "y" ]
 	then
-		sudo timedatectl set local-rtc 1
+		sudo timedatectl set-local-rtc true
 		r11=1
 	elif [ ${t11} = "n" ]
 	then
@@ -259,6 +285,33 @@ do
 	fi
 done
 
+
+echo "You may adjust the encoding setting of gedit to display Chinese characters."
+r12=0
+while [ ${r12} -eq 0 ]
+do
+	echo "Adjust encoding setting (y/n)?"
+	read t12
+	if [ ${t12} = "y" ]
+	then
+		sudo apt-get install dconf-editor
+		gsettings set org.gnome.gedit.preferences.encodings candidate-encodings "['GB18030', 'UTF-8', 'CURRENT', 'ISO-8859-15', 'UTF-16']"
+		r12=1
+	elif [ ${t12} = "n" ]
+	then
+		r12=1
+	else
+		echo "Input should be y/n."
+	fi
+done
+
 echo "Some websites for learning linux:"
 echo "http://www.runoob.com/linux/linux-shell.html"
 echo "http://cn.linux.vbird.org/linux_basic/linux_basic.php"
+
+echo 'Make it look like work is being done...'
+for i in {1..10}; do echo -n '.'; sleep 1; done
+echo
+echo "That's it!"
+sleep 5;
+echo 'Nothing happened.'
