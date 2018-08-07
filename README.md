@@ -1,4 +1,4 @@
-# Others
+# others
 
 These are some configuration files/codes for the OS (Ubuntu) and python.
 
