@@ -306,6 +306,25 @@ do
 	fi
 done
 
+r13=0
+while [ ${r13} -eq 0 ]
+do
+	echo "Install grub customizer (y/n)?"
+	read t13
+	if [ ${t13} = "y" ]
+	then
+		sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+		sudo apt-get update
+		sudo apt-get install grub-customizer
+		r13=1
+	elif [ ${t13} = "n" ]
+	then
+		r13=1
+	else
+		echo "Input should be y/n."
+	fi
+done
+
 echo "Some websites for learning linux:"
 echo "http://www.runoob.com/linux/linux-shell.html"
 echo "http://cn.linux.vbird.org/linux_basic/linux_basic.php"
