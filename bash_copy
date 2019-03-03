@@ -153,7 +153,7 @@ alias ssh0='ssh boyuan@128.83.129.113'
 alias sshtacc="ssh boyuan@ls5.tacc.utexas.edu"
 alias echo0='echo "boyuan@128.83.129.113"'
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/hdf5/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib
 
 t1=0
 while [ ${t1} -eq 0 ]
@@ -193,5 +193,7 @@ done
 #done
 
 export OMP_NUM_THREADS=4
+
+cd ~/Documents
 
 #export PATH="/home/friede/anaconda3/bin:$PATH"
