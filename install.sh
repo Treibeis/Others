@@ -325,6 +325,26 @@ do
 	fi
 done
 
+r14=0
+while [ ${r14} -eq 0 ]
+do
+	echo "Install tlp and tlpui (y/n)?"
+	read t14
+	if [ ${t14} = "y" ]
+	then
+		sudo apt install tlp
+		sudo add-apt-repository ppa:linuxuprising/apps
+		sudo apt-get update
+		sudo apt install tlpui
+		r14=1
+	elif [ ${t14} = "n" ]
+	then
+		r14=1
+	else
+		echo "Input should be y/n."
+	fi
+done
+
 echo "Some websites for learning linux:"
 echo "http://www.runoob.com/linux/linux-shell.html"
 echo "http://cn.linux.vbird.org/linux_basic/linux_basic.php"
