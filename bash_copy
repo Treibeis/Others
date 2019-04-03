@@ -150,8 +150,10 @@ alias zeit='python3 ~/Documents/Answer2.py'
 alias ssh1='ssh pmocosmo@202.127.29.78'
 alias ssh2='ssh cosmoc@www.beiluo.tsinghua.edu.cn'
 alias ssh0='ssh boyuan@128.83.129.113'
-alias sshtacc="ssh boyuan@ls5.tacc.utexas.edu"
+alias sshls5="ssh boyuan@ls5.tacc.utexas.edu"
+alias sshstpd2="ssh boyuan@stampede2.tacc.utexas.edu"
 alias echo0='echo "boyuan@128.83.129.113"'
+alias UTLBY='echo "http://ezproxy.lib.utexas.edu/login?url="'
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib
 
