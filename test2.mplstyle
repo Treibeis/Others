@@ -1,12 +1,13 @@
-patch.linewidth        : 0.1        # edge width in points.
+patch.linewidth        : 0.0        # edge width in points.
 patch.facecolor        : gray
 patch.edgecolor        : gray   # if forced, or patch is not filled
 
-font.size              : 16.5
+font.size              : 14
 
 axes.formatter.limits : -4, 4
 axes.formatter.use_mathtext : True
 axes.prop_cycle    : cycler('color', ['m', 'b', 'c', 'g', 'ff7f0e', 'y', 'r', '7f7f7f', '8c564b', 'k'])
+#axes.prop_cycle    : cycler('color', ['E69F00', '56B4E9', '009E73', 'F0E442', '0072B2', 'D55E00', 'CC79A7', '000000'])
 
 legend.loc           : best
 legend.fontsize      : small

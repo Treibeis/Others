@@ -1,7 +1,7 @@
 
 
 echo "Guten Tag!" 
-echo "This is a shell script for ubuntu 16.04 LTS."
+echo "This is a shell script for ubuntu 18.04 LTS."
 
 echo "You'd better change the default package source before running this shell script."
 echo "In [System settings > Software & Update > Download from] find:"

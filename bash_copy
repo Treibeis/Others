@@ -152,10 +152,13 @@ alias ssh2='ssh cosmoc@www.beiluo.tsinghua.edu.cn'
 alias ssh0='ssh boyuan@128.83.129.113'
 alias sshls5="ssh boyuan@ls5.tacc.utexas.edu"
 alias sshstpd2="ssh boyuan@stampede2.tacc.utexas.edu"
+alias ls5w='echo boyuan@ls5.tacc.utexas.edu:/work/05447/boyuan/'
+alias ls5s='echo boyuan@ls5.tacc.utexas.edu:/scratch/05447/boyuan/'
 alias echo0='echo "boyuan@128.83.129.113"'
 alias UTLBY='echo "http://ezproxy.lib.utexas.edu/login?url="'
+alias rm='rm -I'
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/local/lib
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$HOME/local/lib"
 
 t1=0
 while [ ${t1} -eq 0 ]
@@ -173,6 +176,8 @@ while [ ${t1} -eq 0 ]
     echo 'Input should be y/n.'
   fi
 done
+
+export PATH="/home/friede/Komodo-Edit-11/bin:$PATH"
 
 #t2=0
 #while [ ${t2} -eq 0 ]
